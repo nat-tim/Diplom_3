@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import page_object.PageObjectHomePage;
+import pageobject.PageObjectHomePage;
 
 public class TestBuilder {
     private WebDriver driver;

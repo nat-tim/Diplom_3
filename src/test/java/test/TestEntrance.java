@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import page_object.*;
+import pageobject.*;
 
 public class TestEntrance {
     private WebDriver driver;

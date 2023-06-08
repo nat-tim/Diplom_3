@@ -5,10 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SetWebDriver {
-    private static String urlRegistration = "https://stellarburgers.nomoreparties.site/register";
-    private static String urlLogin = "https://stellarburgers.nomoreparties.site/login";
-    private static String urlHome = "https://stellarburgers.nomoreparties.site";
-    private static String urlRecoverPass = "https://stellarburgers.nomoreparties.site/forgot-password";
+    private static String baseUri = "https://stellarburgers.nomoreparties.site";
 
     public static WebDriver setupDriver() {
         WebDriver driver;
@@ -23,18 +20,27 @@ public class SetWebDriver {
     }
 
     public static String getUrlRegistration() {
-        return urlRegistration;
+        return baseUri+"/register";
     }
 
     public static String getUrlLogin() {
-        return urlLogin;
+        return baseUri+"/login";
     }
 
     public static String getUrlHome() {
-        return urlHome;
+        return baseUri;
     }
 
     public static String getUrlRecoverPass() {
-        return urlRecoverPass;
+        return baseUri+"/forgot-password";
+    }
+    public static String getApiDelUser() {
+        return baseUri+"/api/auth/user";
+    }
+    public static String getApiLoginUser() {
+        return baseUri+"/api/auth/login";
+    }
+    public static String getApiRegUser() {
+        return baseUri+"/api/auth/register";
     }
 }

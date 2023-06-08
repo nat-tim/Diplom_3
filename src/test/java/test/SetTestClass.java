@@ -1,6 +1,7 @@
 package test;
 
 
+import com.github.javafaker.Faker;
 import io.restassured.response.Response;
 import org.json.JSONObject;
 
@@ -8,10 +9,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class SetTestClass {
-
-    final static String email = "tatuka1001@yandex.ru";
-    final static String password = "1234567";
-    final static String name = "naske";
+    static Faker faker = new Faker();
+    final static String email = faker.internet().emailAddress();
+    final static String password = faker.internet().password();
+    final static String name = faker.name().firstName();
 
     public static String createUser() {
         User user = new User(email, password, name);
@@ -20,7 +21,7 @@ public class SetTestClass {
                 .and()
                 .body(user)
                 .when()
-                .post("https://stellarburgers.nomoreparties.site/api/auth/register");
+                .post(SetWebDriver.getApiRegUser());
         response.
                 then().assertThat().statusCode(200)
                 .and()
@@ -37,7 +38,7 @@ public class SetTestClass {
                 .and()
                 .body(user)
                 .when()
-                .post("https://stellarburgers.nomoreparties.site/api/auth/login")
+                .post(SetWebDriver.getApiLoginUser())
                 .then().extract().response();
         response.then().assertThat().statusCode(200)
                 .and()
@@ -53,7 +54,7 @@ public class SetTestClass {
                 .auth()
                 .oauth2(token)
                 .when()
-                .delete("https://stellarburgers.nomoreparties.site/api/auth/user")
+                .delete(SetWebDriver.getApiDelUser())
                 .then().assertThat().statusCode(202);
     }
 

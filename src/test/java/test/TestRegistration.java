@@ -6,10 +6,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import page_object.PageObjectHomePage;
-import page_object.PageObjectLoginPage;
-import page_object.PageObjectPersonalAccountPage;
-import page_object.PageObjectRegistrationPage;
+import pageobject.PageObjectHomePage;
+import pageobject.PageObjectLoginPage;
+import pageobject.PageObjectPersonalAccountPage;
+import pageobject.PageObjectRegistrationPage;
 
 public class TestRegistration {
     private WebDriver driver;
